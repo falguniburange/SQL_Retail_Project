@@ -15,7 +15,7 @@ This project is designed to demonstrate SQL skills and techniques typically used
 - **Database Creation**: The project starts by creating a database named 'SQL-Retail_sales_database'.
 - **Table Creation**: A table named 'retail_sales' is created to store the sales data. The table structure included columns for transactions ID, sale date, sale time,	customer ID,	gender,	age,	product category,	quantity sold,	price per unit,	cost of goods sold (cogs) and	total sales amount.
 
-'''sql
+"""sql
 create table retail_sales(
 transactions_id INT PRIMARY KEY,	
 sale_date DATE,
@@ -29,7 +29,7 @@ price_per_unit FLOAT,
 cogs FLOAT,
 total_sale FLOAT
 );
-'''
+"""
 
 ### **2. DATA CLEANING**
 
