@@ -1,4 +1,4 @@
-# SQL_Retail_Project
+# SQL_Retail_Sales_Analysis_Project
 
 **## Project Overview**
 **Project Title** : Retail Sales Analysis
@@ -39,44 +39,25 @@ total_sale FLOAT
 - **Null Value Checks**: Check for any null values in the dataset and modify the records with missing data.
 
 ```sql
-select * from retail_sales
-where 
-transactions_id is null
-or 
-sale_date is null
-or
-sale_time is null
-or
-gender is null
-or 
-category is null
-or
-quantity is null
-or
-cogs is null
-or
+select * from retail_sales where 
+transactions_id is null or 
+sale_date is null or
+sale_time is null or
+gender is null or 
+category is null or
+quantity is null or
+cogs is null or
 total_sale is null;
 
-delete 
-from retail_sales
-where
-transactions_id is null
-or 
-sale_date is null
-or
-sale_time is null
-or
-gender is null
-or 
-category is null
-or
-quantity is null
-or
-cogs is null
-or
+delete from retail_sales where
+transactions_id is null or 
+sale_date is null or
+sale_time is null or
+gender is null or 
+category is null or
+quantity is null or
+cogs is null or
 total_sale is null;
-
-select * from retail_sales;
 ```
 
 ### 3. DATA ANALYSIS & FINDINGS
@@ -84,19 +65,15 @@ The following SQL queries were developed to answer specific business questions:
 
 **Q.1 WRITE A SQL QUERY TO RETRIEVE ALL COLUMNS FOR SALES MADE ON '2022-11-05'.**
 ```sql
-select *
-from retail_sales
+select *from retail_sales
 where sale_date ='2022-11-05';
 ```
 
 **Q.2 WRITE A SQL QUERY TO RETRIEVE ALL TRANSACTIONS WHERE THE CATEGORY IS CLOTHING AND THE QUANTITY SOLD IN MORE THAN 4 IN THE MONTH OF NOV-2022.**
 ```sql
-select *
-FROM RETAIL_SALES
-where category = 'Clothing'
-and
-to_char(sale_date, 'YYYY-MM')='2022-11'
-and
+select * FROM RETAIL_SALES
+where category = 'Clothing' and
+to_char(sale_date, 'YYYY-MM')='2022-11'and
 quantity>= 4;
 ```
 
@@ -167,17 +144,14 @@ group by category;
 
 **Q.10 WRITE A SQL QUERY TO CREATE EACH SHIFT AND NUMBER OF ORDERS.**
 ```sql
-with hourly_sale
-as
-(
-select *,
+with hourly_sale as
+(select *,
 case
 when extract(hour from sale_time)< 12  then 'Morning'
 when extract(hour from sale_time) between 12 and 17 then 'Afternoon'
 else 'Evening'
 end as shift
-from retail_sales
-)
+from retail_sales)
 select 
 shift,
 count(*) as total_orders
